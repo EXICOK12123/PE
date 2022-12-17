@@ -1,1 +1,21 @@
+//在这个命令下创建一个叫TOOL.INI的文件在里面输入下面的内容
 
+
+
+//创建桌面快捷方式
+LINK %Desktop%\7ZIP,%ProgramFiles%\7-ZIP\7zFM.EXE
+//创建开始快捷方式
+
+LINK %Programs%\文件工具\7-ZIP,%ProgramFiles%\7-ZIP\7zFM.exe
+//desktop还有Programs为快捷方式位置
+//7zip为快捷方式名称
+//%ProgramFiles%为软件目录最好都放Program Files
+
+//关联键盘快捷方式
+HOTK #0x77,%ProgramFiles%\WinSnap\WinSnap.exe
+HOTK #0x78,%SystemRoot%\system32\PECMD.exe kill explorer
+
+//创建注册表关联文件
+REGI $HKCR\.gho\=Ghost
+REGI $HKCR\Ghost\=Ghost 镜像文件
+REGI $HKCR\Ghost\shell\open\command\="%ProgramFiles%\Ghost\GhostExp.exe" "%%1"
